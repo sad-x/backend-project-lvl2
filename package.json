@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/sad-x/backend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/sad-x/backend-project-lvl2/actions) <a href=\"https://codeclimate.com/github/codeclimate/codeclimate/maintainability\"><img src=\"https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability\" /></a>",
-  "main": "index.js",
+  "main": "flatjsondiff.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,7 @@
     "gendiff": "bin/gendiff.js"
   },
   "dependencies": {
-    "commander": "^8.1.0"
+    "commander": "^8.1.0",
+    "lodash": "^4.17.21"
   }
 }
