@@ -1,14 +1,13 @@
 import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
+import getParser from './parsers.js';
 
 const readFile = (filename) => {
   const filepath = path.resolve(process.cwd(), filename);
   const content = fs.readFileSync(filepath, 'utf8');
   return content;
 };
-
-const parse = (content) => JSON.parse(content);
 
 const makeLeaf = (key, oldValue, newValue) => ({ key, oldValue, newValue });
 
@@ -29,7 +28,6 @@ const makeTree = (obj1, obj2) => {
   return [...onlyInFirst, ...onlyInSecond, ...sameItems];
 };
 
-// на вход лист
 const formatLeaf = (leaf) => {
   const { key, oldValue, newValue } = leaf;
   if (oldValue === undefined) return `  + ${key}: ${newValue}`;
@@ -45,6 +43,7 @@ const formatTree = (tree) => {
 };
 
 const genDiff = (path1, path2) => {
+  const parse = getParser(path1);
   const content1 = readFile(path1);
   const content2 = readFile(path2);
   const obj1 = parse(content1);
