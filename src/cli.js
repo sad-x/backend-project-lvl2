@@ -1,5 +1,5 @@
 import { program } from 'commander';
-import genDiff from './flat-json-diff.js';
+import genDiff from './flat-diff.js';
 
 export default () => {
   program
