@@ -3,7 +3,7 @@
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import { readFileSync } from 'fs';
-import genDiff from '../src/flat-json-diff.js';
+import genDiff from '../src/flat-diff.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
