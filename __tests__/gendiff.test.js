@@ -13,7 +13,7 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 test('genDiff', () => {
   const input1Path = getFixturePath('file1-nest.json');
   const input2Path = getFixturePath('file2-nest.json');
-  const outputPath = getFixturePath('output.txt');
+  const outputPath = getFixturePath('output-nest.txt');
   const expected = readFileSync(outputPath, 'utf-8');
   expect(genDiff(input1Path, input2Path)).toEqual(expected);
 });
