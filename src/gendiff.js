@@ -22,9 +22,9 @@ const genDiff = (path1, path2, formatter = 'json') => {
   const obj2 = parse(content2);
   const tree = makeTree(obj1, obj2, 1);
   const formatTree = getFormatter(formatter);
-  return formatTree(tree);
+  return `{\n${formatTree(tree)}\n}`;
 };
 
-console.log(genDiff('__fixtures__/file1-nest.json', '__fixtures__/file2-nest.json'));
+// console.log(genDiff('__fixtures__/file1-nest.json', '__fixtures__/file2-nest.json', 'stylish'));
 
 export default genDiff;

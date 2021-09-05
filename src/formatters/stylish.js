@@ -1,21 +1,32 @@
+/* eslint-disable no-else-return */
 import _ from 'lodash';
 import {
   getKey, getValuePair, getType, getLevel, getStatus, getChildren,
 } from '../tree.js';
 
-const makeLine = (level, key, value, sign) => {
-  const spacesWithSign = sign === undefined
+const makeSpacesAndSign = (level, sign) => {
+  const spaces = sign === undefined
     ? ' '.repeat(level * 4)
     : `${' '.repeat((level - 1) * 4)}  ${sign} `;
+  return spaces;
+};
+
+const makeLine = (key, value, level, sign) => {
+  const spacesWithSign = makeSpacesAndSign(level, sign);
   return `${spacesWithSign}${key}: ${value}`;
 };
 
-const makeLinesFromObj = (obj) => {
-
+const makeLinesFromObj = (key, value, level, sign) => {
+  if (_.isObject(value)) {
+    const entries = Object.entries(value);
+    const joinedLines = entries.map(([k, v]) => makeLinesFromObj(k, v, level + 1)).join('\n');
+    return `${makeSpacesAndSign(level, sign)}${key}: {\n${joinedLines}\n${makeSpacesAndSign(level)}}`;
+  }
+  return makeLine(key, value, level);
 };
 
 const formatValue = (key, value, level, sign) => {
-  if (!_.isObject(value)) makeLine(key, value, level, sign);
+  if (!_.isObject(value)) return makeLine(key, value, level, sign);
   return makeLinesFromObj(key, value, level, sign);
 };
 
@@ -31,6 +42,12 @@ const formatTree = (tree) => {
         const status = getStatus(node);
         if (status === 'added') {
           return formatValue(key, newValue, level, '+');
+        } else if (status === 'deleted') {
+          return formatValue(key, oldValue, level, '-');
+        } else if (status === 'unchanged') {
+          return formatValue(key, oldValue, level, undefined);
+        } else {
+          return `${formatValue(key, oldValue, level, '-')}\n${formatValue(key, newValue, level, '+')}`;
         }
       }
       if (type === 'branch') {
@@ -39,7 +56,7 @@ const formatTree = (tree) => {
         const spaces = ' '.repeat(level * 4);
         const startLine = `${spaces}${key}: {`;
         const endLine = `${spaces}}`;
-        return [startLine, ...result, endLine];
+        return [startLine, result, endLine].join('\n');
       }
       return [];
     })
