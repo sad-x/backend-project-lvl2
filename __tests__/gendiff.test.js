@@ -15,5 +15,5 @@ test('genDiff', () => {
   const input2Path = getFixturePath('file2-nest.json');
   const outputPath = getFixturePath('output-nest.txt');
   const expected = readFileSync(outputPath, 'utf-8');
-  expect(genDiff(input1Path, input2Path)).toEqual(expected);
+  expect(genDiff(input1Path, input2Path, 'stylish')).toEqual(expected);
 });
