@@ -4,3 +4,4 @@
 <a href="https://codeclimate.com/github/sad-x/backend-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/5680c3a712628dafb65b/test_coverage" /></a>
 https://asciinema.org/a/9xrH8fL2KNnximJFiOzkquKNi
 https://asciinema.org/a/OerRPWfFLHxldYFgQude13osc
+https://asciinema.org/a/jiNnOUtKmpIcRV4nPFTdsQYRz
