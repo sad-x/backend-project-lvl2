@@ -1,4 +1,9 @@
 import stylish from './stylish.js';
 import json from './json.js';
 
-export { stylish, json };
+const getFormatter = (formatName) => {
+  if (formatName === 'json') return json;
+  return stylish;
+};
+
+export default getFormatter;
