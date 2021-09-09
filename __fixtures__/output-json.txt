@@ -1,0 +1,151 @@
+[
+  {
+    "key": "group2",
+    "oldValue": {
+      "abc": 12345,
+      "deep": {
+        "id": 45
+      }
+    },
+    "level": 1,
+    "status": "deleted",
+    "type": "leaf"
+  },
+  {
+    "key": "group3",
+    "newValue": {
+      "deep": {
+        "id": {
+          "number": 45
+        }
+      },
+      "fee": 100500
+    },
+    "level": 1,
+    "status": "added",
+    "type": "leaf"
+  },
+  {
+    "key": "common",
+    "level": 1,
+    "type": "branch",
+    "children": [
+      {
+        "key": "setting2",
+        "oldValue": 200,
+        "level": 2,
+        "status": "deleted",
+        "type": "leaf"
+      },
+      {
+        "key": "follow",
+        "newValue": false,
+        "level": 2,
+        "status": "added",
+        "type": "leaf"
+      },
+      {
+        "key": "setting4",
+        "newValue": "blah blah",
+        "level": 2,
+        "status": "added",
+        "type": "leaf"
+      },
+      {
+        "key": "setting5",
+        "newValue": {
+          "key5": "value5"
+        },
+        "level": 2,
+        "status": "added",
+        "type": "leaf"
+      },
+      {
+        "key": "setting1",
+        "oldValue": "Value 1",
+        "newValue": "Value 1",
+        "level": 2,
+        "status": "unchanged",
+        "type": "leaf"
+      },
+      {
+        "key": "setting3",
+        "oldValue": true,
+        "newValue": null,
+        "level": 2,
+        "status": "changed",
+        "type": "leaf"
+      },
+      {
+        "key": "setting6",
+        "level": 2,
+        "type": "branch",
+        "children": [
+          {
+            "key": "ops",
+            "newValue": "vops",
+            "level": 3,
+            "status": "added",
+            "type": "leaf"
+          },
+          {
+            "key": "key",
+            "oldValue": "value",
+            "newValue": "value",
+            "level": 3,
+            "status": "unchanged",
+            "type": "leaf"
+          },
+          {
+            "key": "doge",
+            "level": 3,
+            "type": "branch",
+            "children": [
+              {
+                "key": "wow",
+                "oldValue": "",
+                "newValue": "so much",
+                "level": 4,
+                "status": "changed",
+                "type": "leaf"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "group1",
+    "level": 1,
+    "type": "branch",
+    "children": [
+      {
+        "key": "baz",
+        "oldValue": "bas",
+        "newValue": "bars",
+        "level": 2,
+        "status": "changed",
+        "type": "leaf"
+      },
+      {
+        "key": "foo",
+        "oldValue": "bar",
+        "newValue": "bar",
+        "level": 2,
+        "status": "unchanged",
+        "type": "leaf"
+      },
+      {
+        "key": "nest",
+        "oldValue": {
+          "key": "value"
+        },
+        "newValue": "str",
+        "level": 2,
+        "status": "changed",
+        "type": "leaf"
+      }
+    ]
+  }
+]

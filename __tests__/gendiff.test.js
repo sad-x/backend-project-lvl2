@@ -28,3 +28,11 @@ test('gendiff plain', () => {
   const expected = readFileSync(outputPath, 'utf-8');
   expect(genDiff(input1Path, input2Path, 'plain')).toEqual(expected);
 });
+
+test('gendiff json', () => {
+  const input1Path = getFixturePath('file1-nest.json');
+  const input2Path = getFixturePath('file2-nest.yml');
+  const outputPath = getFixturePath('output-json.txt');
+  const expected = readFileSync(outputPath, 'utf-8');
+  expect(genDiff(input1Path, input2Path, 'json')).toEqual(expected);
+});
