@@ -63,4 +63,6 @@ const formatTree = (tree) => {
     .join('\n');
 };
 
-export default formatTree;
+const formatTreeWithBraces = (tree) => `{\n${formatTree(tree)}\n}`;
+
+export default formatTreeWithBraces;

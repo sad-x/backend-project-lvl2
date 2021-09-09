@@ -13,7 +13,6 @@ const readFile = (filename) => {
   return content;
 };
 
-// getFormater()
 const genDiff = (path1, path2, formatter = 'stylish') => {
   const parse1 = getParser(path1);
   const parse2 = getParser(path2);
@@ -23,9 +22,9 @@ const genDiff = (path1, path2, formatter = 'stylish') => {
   const obj2 = parse2(content2);
   const tree = makeTree(obj1, obj2, 1);
   const formatTree = getFormatter(formatter);
-  return `{\n${formatTree(tree)}\n}`;
+  return formatTree(tree);
 };
 
-// console.log(genDiff('__fixtures__/file1-nest.json', '__fixtures__/file2-nest.json', 'stylish'));
+// console.log(genDiff('__fixtures__/file1-nest.json', '__fixtures__/file2-nest.json', 'plain'));
 
 export default genDiff;
